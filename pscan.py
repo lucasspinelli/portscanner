@@ -7,11 +7,19 @@ client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.settimeout(0.05)
 
 ip = input("Type the ip : ")
-port = input("Type the port : ")
 
-code = client.connect_ex((ip, port))
+ports = []
+count = 0
+while count < 10:
+    port = int(input("Type the port : "))
+    count += 1
 
-if code == 0:
-    print("Open")
-else:
-    print("Close")
+for port in ports:
+    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client.settimeout(0.05)
+    code = client.connect_ex((ip, port))
+
+    if code == 0:
+        print(str(port),">> Open")
+    else:
+        print(str(port), ">> Close")
