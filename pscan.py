@@ -11,7 +11,7 @@ ip = input("Type the ip : ")
 ports = []
 count = 0
 while count < 10:
-    port = int(input("Type the port : "))
+    ports.append = int(input("Type the port : "))
     count += 1
 
 for port in ports:
@@ -20,6 +20,7 @@ for port in ports:
     code = client.connect_ex((ip, port))
 
     if code == 0:
-        print(str(port),">> Open")
+        print(str(port), ">> Open")
     else:
         print(str(port), ">> Close")
+print("Finished")
