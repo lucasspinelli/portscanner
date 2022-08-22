@@ -12,3 +12,7 @@ while True:
     stdin, stdout, stderr = client.exec_command(input("Commando: "))
     for line in stdout.readlines():
         print(line.strip())
+
+    errors = stderr.readlines()
+    if errors:
+        print(errors)
